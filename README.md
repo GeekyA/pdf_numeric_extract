@@ -34,6 +34,16 @@ You must also have Tesseract OCR installed on your system:
    ```bash
    pip install -r requirements.txt
    ```
+## Usage on sample bill
+
+1. Navigate to the directory containing the script:
+   ```bash
+   cd pdf_numeric_extract
+   ```
+2. Run app.py
+   ```bash 
+   python app.py
+   ```
 
 ## Usage
 
@@ -57,17 +67,6 @@ print("Prices:", parsed_data["prices"])
 print("Dates:", parsed_data["dates"])
 print("Other Numbers:", parsed_data["others"])
 ```
-
-## Usage on sample bill
-
-1. Navigate to the directory containing the script:
-   ```bash
-   cd pdf_numeric_extract
-   ```
-2. Run app.py
-   ```bash
-   python app.py
-  ```
 
 
 ## Class Descriptions
