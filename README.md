@@ -37,6 +37,29 @@ You must also have Tesseract OCR installed on your system:
 
 ## Usage
 
+```python
+from pdf_extractor import PDFTextExtractor, TextParser
+
+# Initialize the extractor with your PDF file
+pdf_extractor = PDFTextExtractor('bill.pdf', 'output_folder')
+
+# Extract text from all pages
+extracted_text = pdf_extractor.extract_text()
+
+# Combine all pages' text
+full_text = '\n'.join(extracted_text)
+
+# Parse the extracted text
+parsed_data = TextParser.parse(full_text)
+
+# Access the parsed data
+print("Prices:", parsed_data["prices"])
+print("Dates:", parsed_data["dates"])
+print("Other Numbers:", parsed_data["others"])
+```
+
+## Usage on sample bill
+
 1. Navigate to the directory containing the script:
    ```bash
    cd pdf_numeric_extract
