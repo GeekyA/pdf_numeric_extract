@@ -37,15 +37,11 @@ You must also have Tesseract OCR installed on your system:
 
 ## Usage
 
-1. Open a terminal or command prompt.
-   ```bash
-   git clone https://github.com/GeekyA/pdf_numeric_extract.git
-   ```
-2. Navigate to the directory containing the script:
+1. Navigate to the directory containing the script:
    ```bash
    cd pdf_numeric_extract
    ```
-3. Run app.py
+2. Run app.py
    ```bash
    python app.py
   ```
