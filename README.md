@@ -103,5 +103,4 @@ The parser returns a dictionary with the following structure:
 
 - The DPI is hardcoded to 655 for optimal OCR results
 - Temporary images are saved in the specified output folder
-- Make sure you have sufficient disk space for temporary image storage
 - Larger PDFs may take longer to process due to high-resolution image conversion
