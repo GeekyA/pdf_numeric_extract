@@ -107,7 +107,7 @@ The traditional parser returns a dictionary with the following structure:
 ```
 Additionaly the LLM augmented response looks like this on the example bill.pdf
 
-```bash
+```python
 {'prices': [{'total_amount_due': 108.82}, {'previous_balance': 103.61}, {'comcast_paydirect': -103.61}, {'new_charges': 108.82}, {'thank_you': 93.84},{'other_charges_and_credits': 8.53}, {'taxes_surcharges_fees': 6.45}, {'total_new_charges': 108.82}, {'sarview_detal_total_amount_due': 108.82}, {'additional_outlet_01_08_to_07_video_prices': 9.95}, {'xfinity_tv': 93.84}, {'broadcast_tv_fee': 5.0}, {'franchise_related_cost': 0.53}, {'total_other_charges_credits': 8.53}, {'state_sales_tax': 0.02}, {'franchise_fee': 6.35}, {'federal_council_regulatory_fee': 0.08}, {'total_taxes_surcharges_fees': 6.45}], 'dates': [{'billing_date': '12/28/15'}, {'auto_pay': '01/12/16'}, {'autopay_payment': '01/12/16'}], 'others': [{'contact_us_url': 'https://www.xfinity.com'}, {'call_phone_number': '(1) 800-934-6489'}, {'payment_time': 'quick and convenient'}, {'copyright_symbol': '©'}, {'box_number': '6505'}, {'location': 'CHELMSFORD MA 01824-0000'}, {'call_to_request_monthly_bill_in_spanish_at': ''}, {'live_chat_link': '855-270-0379'}, {'phone_number': '+1 (555) 123-4567'}, {'contact_type': 'residential'}, {'business_type': 'real_estate'}]}
 ```
 
