@@ -16,9 +16,12 @@ A Python utility for extracting text from PDF documents using OCR (Optical Chara
 ## Prerequisites
 
 ```bash
-pip install pymupdf
-pip install pytesseract
-pip install Pillow
+pip install pillow==11.0.0
+pip install pytesseract==0.3.13
+pip install PyMuPDF==1.24.13
+pip install transformers==4.46.3
+pip install accelerate==1.1.1
+pip install tqdm==4.67.1
 ```
 
 You must also have Tesseract OCR installed on your system:
@@ -59,9 +62,10 @@ extracted_text = pdf_extractor.extract_text()
 # Combine all pages' text
 full_text = '\n'.join(extracted_text)
 
-# Parse the extracted text
-parsed_data = TextParser.parse(full_text)
+# Parse the extracted text using LLM
+parsed_data = TextParser().parse(page_text)
 
+# or parse the values without i.e LLMs without descriptive fields
 # Access the parsed data
 print("Prices:", parsed_data["prices"])
 print("Dates:", parsed_data["dates"])
@@ -142,4 +146,4 @@ prompt = f"""
     Text: "{x}"
     """
 ```
-There are some hallucinations and inaccuracy in the final result still due to a small model being used. The assignment was written by keeping in mind that it will probably be run on a standard computer and not on production grade GPUs. Proprietary models are not used either although a small experiment I conducted with claude produced good results.
+Note: There are some hallucinations and inaccuracy in the final result still due to a small model being used. The assignment was written by keeping in mind that it will probably be run on a standard computer and not on production grade GPUs. Proprietary models are not used either although a small experiment I conducted with claude produced good results.
