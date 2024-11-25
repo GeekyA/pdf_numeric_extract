@@ -129,15 +129,13 @@ Additionaly the LLM augmented response looks like this on the example bill.pdf
  'dates': [{'billing_date': '12/28/15'},
   {'auto_pay': '01/12/16'},
   {'autopay_payment': '01/12/16'}],
- 'others': [{'contact_us_url': 'https://www.xfinity.com'},
+ 'others': [,
   {'call_phone_number': '(1) 800-934-6489'},
-  {'payment_time': 'quick and convenient'},
   {'box_number': '6505'},
   {'location': 'CHELMSFORD MA 01824-0000'},
   {'live_chat_link': '855-270-0379'},
   {'phone_number': '+1 (555) 123-4567'},
-  {'contact_type': 'residential'},
-  {'business_type': 'real_estate'}]}
+  ]}
 ```
 
 As you can see the result now has relevant field names for each value.
