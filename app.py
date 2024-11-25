@@ -3,6 +3,7 @@ import re
 import fitz  # PyMuPDF
 import pytesseract
 from PIL import Image
+from infer_llm import run_llm_on_text
 
 class PDFTextExtractor:
     def __init__(self, pdf_path, output_folder='temp'):
@@ -57,12 +58,45 @@ class TextParser:
             "dates": list(dates),
             "others": list(set(others))
         }
+    
+    @staticmethod
+    def parse_llm_dict(data_dict):
+        result = {
+        "prices": [],
+        "dates": [],
+        "others": []
+    }
+
+        for key, value in data_dict.items():
+            # Prices
+            if isinstance(value, (float, int)) and round(value, 2) == value:
+                result["prices"].append({key: float(value)})
+            
+            # Dates
+            if isinstance(value, str) and ('/' in value or ',' in value):
+                date_match = re.search(r'\d{2}/\d{2}/\d{2,4}|\w{3,9}\s\d{1,2},\s\d{4}', value)
+                if date_match:
+                    result["dates"].append({key: date_match.group()})
+            
+            # Others with numbers
+        for key, value in data_dict.items():
+            if isinstance(value, str):
+                if {key: value} not in result['prices'] and {key: value} not in result['dates']:
+                    result["others"].append({key: value})
+
+        return result
+    
+    def parse_by_llm(self, text):
+        resp = run_llm_on_text(page_text.splitlines())
+        resp = self.parse_llm_dict(resp)
+        return resp
+
 
 # Usage example:
 if __name__ == "__main__":
-    pdf_extractor = PDFTextExtractor('bill.pdf', 'outs')
+    pdf_extractor = PDFTextExtractor('bill.pdf')
     extracted_text = pdf_extractor.extract_text()
     page_text = '\n'.join(extracted_text)
 
-    parsed_data = TextParser.parse(page_text)
+    parsed_data = TextParser().parse_by_llm(page_text)
     print(parsed_data)
